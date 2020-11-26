@@ -44,7 +44,7 @@ document.querySelector('.check').addEventListener('click', function () {
     } else if (guess !== secretNumber) {
       if (score > 1) {
         displayMessage(guess > secretNumber ? '📈 Too high!' : '📉 Too low!');
-        score--;
+        score -= 4;
         document.querySelector('.score').textContent = score;
       } else {
         displayMessage('💥 You lost the game!');
