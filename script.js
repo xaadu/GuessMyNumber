@@ -8,12 +8,6 @@ const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
 };
 
-const changeNumNBody = function (number, width, color) {
-  document.querySelector('.number').textContent = number;
-  document.querySelector('.number').style.width = width;
-  document.querySelector('body').style.backgroundColor = color;
-};
-
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
@@ -25,8 +19,10 @@ document.querySelector('.check').addEventListener('click', function () {
     // When player wins
   } else if (guess === secretNumber) {
     displayMessage('🎉 Correct Number!');
+    document.querySelector('.number').textContent = secretNumber;
 
-    changeNumNBody(secretNumber, '30rem', '#60b347');
+    document.querySelector('body').style.backgroundColor = '#60b347';
+    document.querySelector('.number').style.width = '30rem';
 
     if (score > highscore) {
       highscore = score;
@@ -52,7 +48,9 @@ document.querySelector('.again').addEventListener('click', function () {
 
   displayMessage('Start guessing...');
   document.querySelector('.score').textContent = score;
+  document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
 
-  changeNumNBody('?', '15rem', '#222');
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
 });
