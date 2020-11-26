@@ -5,7 +5,6 @@
   let secretNumber, score, highscore, isPlaying;
 
   score = 20;
-  highscore = 0;
   isPlaying = true;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
 
@@ -19,6 +18,12 @@
     document.querySelector('.number').style.width = width;
     document.querySelector('body').style.backgroundColor = color;
   };
+
+  const setHighScore = function (sc) {
+    highscore = sc;
+    document.querySelector('.highscore').textContent = highscore;
+    localStorage.highscore = highscore;
+  }
 
   // Check Button Click Event
   document.querySelector('.check').addEventListener('click', function () {
@@ -37,8 +42,7 @@
         isPlaying = false;
 
         if (score > highscore) {
-          highscore = score;
-          document.querySelector('.highscore').textContent = highscore;
+          setHighScore(score);
         }
 
         // When guess is wrong
@@ -69,4 +73,10 @@
 
     changeNumNBody('?', '15rem', '#222');
   });
+
+  // Reset Button Click Event
+  document.querySelector('.reset').addEventListener('click', setHighScore.bind(this, 0));
+
+  highscore = localStorage.highscore ? Number(localStorage.highscore) : 0;
+  setHighScore(highscore);
 })();
