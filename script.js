@@ -45,6 +45,7 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = score;
     } else {
       displayMessage('💥 You lost the game!');
+      changeNumNBody('?', '30rem', '#c00');
       document.querySelector('.score').textContent = 0;
     }
   }
