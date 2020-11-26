@@ -4,10 +4,14 @@
 (function () {
   let secretNumber, score, highscore, isPlaying;
 
-  score = 20;
-  isPlaying = true;
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  const init = function () {
+    score = 20;
+    isPlaying = true;
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
 
+    highscore = localStorage.highscore ? Number(localStorage.highscore) : 0;
+    setHighScore(highscore);
+  }
 
   const displayMessage = function (message) {
     document.querySelector('.message').textContent = message;
@@ -77,6 +81,6 @@
   // Reset Button Click Event
   document.querySelector('.reset').addEventListener('click', setHighScore.bind(this, 0));
 
-  highscore = localStorage.highscore ? Number(localStorage.highscore) : 0;
-  setHighScore(highscore);
+  // Initialize
+  init();
 })();
