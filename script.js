@@ -38,6 +38,10 @@
       if (!guess) {
         displayMessage('⛔️ No number!');
 
+        // Check for Range
+      } else if (guess < 1 || guess > 20) {
+        displayMessage('🙂 Number Out Of Range');
+
         // When player wins
       } else if (guess === secretNumber) {
         displayMessage('🎉 Correct Number!');
