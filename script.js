@@ -55,7 +55,7 @@
 
         // When guess is wrong
       } else if (guess !== secretNumber) {
-        if (score > 1) {
+        if (score > 4) {
           displayMessage(guess > secretNumber ? '📈 Too high!' : '📉 Too low!');
           score -= 4;
           document.querySelector('.score').textContent = score;
