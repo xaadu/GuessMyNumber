@@ -21,7 +21,6 @@ const changeNumNBody = function (number, width, color) {
 // Check Button Click Event
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
-  console.log(guess, typeof guess);
 
   if (isPlaying) {
     // When there is no input
